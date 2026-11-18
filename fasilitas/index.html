@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10332e">
+  <meta name="description" content="Bayangkan menyusuri jalur hijau di antara deretan rumah ketika sore mulai teduh. Lihat bagaimana jalur pejalan kaki dirancang di dalam kawasan.">
+  <meta property="og:title" content="Sore untuk dinikmati dengan berjalan kaki. · Metland Kairagi">
+  <title>Sore untuk dinikmati dengan berjalan kaki. · Metland Kairagi</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/playfair.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../journey.css">
+  <script src="../app.js" defer></script>
+</head>
+<body class="journey scene-fasilitas" data-video="../assets/06-jalur-masuk.mp4">
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="diagonal" viewBox="0 0 24 24"><path d="M6 18 18 6M8 6h10v10"/></symbol>
+    <symbol id="down" viewBox="0 0 24 24"><path d="M12 3v17m-6-6 6 6 6-6"/></symbol>
+    <symbol id="play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z"/></symbol>
+    <symbol id="calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18m-13 4h1m3 0h1m3 0h1m-9 3h1m3 0h1"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="expand" viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></symbol>
+  </svg>
+  <a class="skip-link" href="#judul">Lewati ke isi halaman</a>
+  <header class="journey-header">
+    <a class="journey-brand" href="../index.html" aria-label="Metland Kairagi, pembuka"><img src="../assets/logo.webp" alt="Metland Kairagi" width="400" height="131"></a>
+    <button class="journey-menu" type="button" aria-label="Jelajahi bab" aria-expanded="false" aria-controls="navigation"><svg aria-hidden="true"><use href="#menu"/></svg><span>Jelajahi</span></button>
+    <nav id="navigation" class="journey-nav" aria-label="Bab perjalanan"><a href="../index.html">Gerbang</a><a href="../kawasan/index.html">Kawasan</a><a href="../hunian/index.html">Hunian</a><a href="../interior/index.html">Interior</a><a href="../fasilitas/index.html" aria-current="page">Fasilitas</a><a href="../lokasi/index.html">Lokasi &amp; Kunjungan</a></nav>
+    <a class="button journey-visit" href="../lokasi/index.html"><svg aria-hidden="true"><use href="#calendar"/></svg><span>Jadwalkan Kunjungan</span></a>
+  </header>
+  <main class="scene">
+    <picture class="scene-picture"><img src="../assets/aerial.webp" width="1440" height="810" fetchpriority="high" alt=""></picture>
+    <div class="scene-shade"></div>
+    <div class="scene-copy">
+      <p class="scene-eyebrow">Ruang hijau dan jalur pejalan kaki</p>
+      <h1 id="judul" tabindex="-1">Sore untuk dinikmati<br>dengan <em>berjalan kaki.</em></h1>
+      <p class="scene-intro">Bayangkan menyusuri jalur hijau di antara deretan rumah ketika sore mulai teduh. Lihat bagaimana jalur pejalan kaki dirancang di dalam kawasan.</p>
+      
+      <div class="actions"><a class="button primary" href="../lokasi/index.html" data-forward>Lihat Lokasi <svg aria-hidden="true"><use href="#arrow"/></svg></a><a class="button outline light" href="#detail" data-detail>Lihat Jalur Hijau <svg aria-hidden="true"><use href="#expand"/></svg></a></div>
+    </div>
+    <div class="scene-bottom">
+      <nav class="chapter-nav" aria-label="Pilih bab"><span id="chapter-count">05 / 06</span><a href="../index.html" class="chapter-mark" aria-label="Gerbang"></a><a href="../kawasan/index.html" class="chapter-mark" aria-label="Kawasan"></a><a href="../hunian/index.html" class="chapter-mark" aria-label="Hunian"></a><a href="../interior/index.html" class="chapter-mark" aria-label="Interior"></a><a href="../fasilitas/index.html" class="chapter-mark" aria-label="Fasilitas" aria-current="page"></a><a href="../lokasi/index.html" class="chapter-mark" aria-label="Lokasi &amp; Kunjungan"></a></nav>
+      <div class="scene-arrows"><a class="scene-nudge" href="../lokasi/index.html" data-forward>Gulir atau geser ke bab berikutnya</a><div class="scene-arrow-links"><a href="../interior/index.html" aria-label="Bab sebelumnya" title="Bab sebelumnya"><span class="up"><svg aria-hidden="true"><use href="#down"/></svg></span></a><a href="../lokasi/index.html" data-forward aria-label="Bab berikutnya, Lokasi &amp; Kunjungan" title="Bab berikutnya"><svg aria-hidden="true"><use href="#down"/></svg></a></div></div>
+    </div>
+  </main>
+  <dialog id="film" class="film-dialog story-film" aria-labelledby="film-label">
+      <video muted playsinline preload="none" poster="../assets/aerial.webp"></video>
+      <div class="film-bar">
+        <div><span id="film-label">Visualisasi arsitektur</span><p>Menuju Lokasi &amp; Kunjungan</p><progress aria-label="Progres video" value="0" max="1"></progress></div>
+        <button type="button" class="button outline light film-skip" autofocus>Lewati video <svg aria-hidden="true"><use href="#arrow"/></svg></button>
+      </div>
+    </dialog>
+  <dialog id="detail" class="plan-dialog detail-dialog" aria-labelledby="details-title">
+      <div class="plan-top"><h2 id="details-title">Jalur hijau</h2><button type="button" class="close-control" data-close="details" aria-label="Tutup detail" autofocus><svg aria-hidden="true"><use href="#close"/></svg></button></div>
+      <div class="detail-body"><figure class="framed"><img src="../assets/greenway.webp" width="1440" height="810" loading="lazy" alt="Jalur pejalan kaki di antara rumah dan taman"><figcaption>Ilustrasi jalur pejalan kaki dan ruang hijau</figcaption></figure></div>
+    </dialog>
+</body>
+</html>
