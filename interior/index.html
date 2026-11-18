@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10332e">
-  <meta name="description" content="Pagi bermula di meja makan. Dari sana, pandangan berlanjut ke halaman. Kenali ruang keluarga, ruang duduk atas, dan bagaimana keduanya terhubung.">
+  <meta name="description" content="Dari meja makan, pandangan berlanjut ke halaman. Di lantai atas, ruang duduk memberi tempat untuk jeda sebelum kembali ke kamar.">
   <meta property="og:title" content="Dari ruang makan ke halaman. · Metland Kairagi">
   <title>Dari ruang makan ke halaman. · Metland Kairagi</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -25,7 +25,7 @@
     <symbol id="expand" viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></symbol>
   </svg>
   <a class="skip-link" href="#judul">Lewati ke isi halaman</a>
-  <header class="journey-header">
+  <header class="journey-header" data-enter>
     <a class="journey-brand" href="../index.html" aria-label="Metland Kairagi, pembuka"><img src="../assets/logo.webp" alt="Metland Kairagi" width="400" height="131"></a>
     <button class="journey-menu" type="button" aria-label="Jelajahi bab" aria-expanded="false" aria-controls="navigation"><svg aria-hidden="true"><use href="#menu"/></svg><span>Jelajahi</span></button>
     <nav id="navigation" class="journey-nav" aria-label="Bab perjalanan"><a href="../index.html">Gerbang</a><a href="../kawasan/index.html">Kawasan</a><a href="../hunian/index.html">Hunian</a><a href="../interior/index.html" aria-current="page">Interior</a><a href="../fasilitas/index.html">Fasilitas</a><a href="../lokasi/index.html">Lokasi &amp; Kunjungan</a></nav>
@@ -35,13 +35,17 @@
     <picture class="scene-picture"><img src="../assets/living.webp" width="1440" height="810" fetchpriority="high" alt=""></picture>
     <div class="scene-shade"></div>
     <div class="scene-copy">
-      <p class="scene-eyebrow">Di dalam Lorraine</p>
-      <h1 id="judul" tabindex="-1">Dari ruang makan<br>ke <em>halaman.</em></h1>
-      <p class="scene-intro">Pagi bermula di meja makan. Dari sana, pandangan berlanjut ke halaman. Kenali ruang keluarga, ruang duduk atas, dan bagaimana keduanya terhubung.</p>
-      
-      <div class="actions"><a class="button primary" href="../fasilitas/index.html" data-forward>Menuju Fasilitas <svg aria-hidden="true"><use href="#arrow"/></svg></a><a class="button outline light" href="#detail" data-detail>Lihat Interior <svg aria-hidden="true"><use href="#expand"/></svg></a></div>
+      <p class="scene-eyebrow" data-enter>Di dalam Lorraine</p>
+      <h1 id="judul" tabindex="-1" data-enter>Dari ruang makan<br>ke <em>halaman.</em></h1>
+      <p class="scene-intro" data-enter>Dari meja makan, pandangan berlanjut ke halaman. Di lantai atas, ruang duduk memberi tempat untuk jeda sebelum kembali ke kamar.</p>
+
+      <div class="actions" data-enter><a class="button primary" href="../fasilitas/index.html" data-forward>Menuju Fasilitas <svg aria-hidden="true"><use href="#arrow"/></svg></a><a class="button outline light" href="#detail" data-detail>Lihat Interior <svg aria-hidden="true"><use href="#expand"/></svg></a></div>
     </div>
-    <div class="scene-bottom">
+    <figure class="interior-peek" data-enter>
+      <img src="../assets/upstairs.webp" width="1440" height="810" alt="Ilustrasi ruang duduk atas">
+      <figcaption>Ruang duduk atas</figcaption>
+    </figure>
+    <div class="scene-bottom" data-enter>
       <nav class="chapter-nav" aria-label="Pilih bab"><span id="chapter-count">04 / 06</span><a href="../index.html" class="chapter-mark" aria-label="Gerbang"></a><a href="../kawasan/index.html" class="chapter-mark" aria-label="Kawasan"></a><a href="../hunian/index.html" class="chapter-mark" aria-label="Hunian"></a><a href="../interior/index.html" class="chapter-mark" aria-label="Interior" aria-current="page"></a><a href="../fasilitas/index.html" class="chapter-mark" aria-label="Fasilitas"></a><a href="../lokasi/index.html" class="chapter-mark" aria-label="Lokasi &amp; Kunjungan"></a></nav>
       <div class="scene-arrows"><a class="scene-nudge" href="../fasilitas/index.html" data-forward>Gulir atau geser ke bab berikutnya</a><div class="scene-arrow-links"><a href="../hunian/index.html" aria-label="Bab sebelumnya" title="Bab sebelumnya"><span class="up"><svg aria-hidden="true"><use href="#down"/></svg></span></a><a href="../fasilitas/index.html" data-forward aria-label="Bab berikutnya, Fasilitas" title="Bab berikutnya"><svg aria-hidden="true"><use href="#down"/></svg></a></div></div>
     </div>

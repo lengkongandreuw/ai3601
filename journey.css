@@ -160,3 +160,144 @@ figcaption{display:flex;justify-content:space-between;gap:8px;margin-top:7px;col
 @media(max-width:350px){.journey-brand{width:113px}.journey-visit span{max-width:61px;white-space:normal}.chapter-mark{width:13px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
 
+
+/* The video stays in its own top layer until the painted destination is ready. */
+.story-film[open]{background:transparent}
+.story-film[open] video{opacity:0;transition:opacity 240ms ease-out}
+.story-film[open].film-playing video{opacity:1}
+.story-film::backdrop{background:transparent}
+.story-film .film-bar{transition:opacity 220ms ease}
+.story-film.film-leaving{pointer-events:none}
+.story-film.film-leaving .film-bar{opacity:0}
+.scene-arrival [data-enter],.from-film [data-enter]{
+  animation:reveal-ui 650ms cubic-bezier(.18,.72,.26,1) both;
+  animation-delay:var(--enter,0ms)
+}
+.from-film [data-enter]{animation-delay:calc(var(--enter,0ms) + 100ms)}
+.journey-header{--enter:30ms}
+.scene-eyebrow{--enter:95ms}
+.scene h1{--enter:165ms}
+.scene-intro{--enter:235ms}
+.scene .actions,.scene-note,.interior-peek,.greenway-feature,.home-rail,.location-card{--enter:305ms}
+.scene-bottom{--enter:370ms}
+@keyframes reveal-ui{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.scene-note,.interior-peek,.greenway-feature,.location-card,.home-rail{min-width:0}
+.scene-kawasan .scene,.scene-fasilitas .scene,.scene-lokasi .scene{
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);column-gap:clamp(28px,5vw,90px)
+}
+.scene-kawasan .scene-bottom,.scene-fasilitas .scene-bottom,.scene-lokasi .scene-bottom,
+.scene-hunian .scene-bottom,.scene-interior .scene-bottom{grid-column:1 / -1}
+.scene-kawasan .scene-picture img{object-position:39% center}
+.scene-kawasan .scene-shade{background:linear-gradient(270deg,#05261df5 1%,#092a20e3 27%,#102e2166 56%,transparent 76%),linear-gradient(180deg,#071e20a6,transparent 31%,#081e1720 69%,#081e1ada)}
+.scene-kawasan .scene-copy{grid-area:1 / 2;width:100%}
+.scene-kawasan h1{font-size:clamp(3.4rem,5.4vw,6rem)}
+.land-note{
+  grid-area:1 / 1;align-self:end;justify-self:start;display:grid;gap:7px;margin-bottom:25px;
+  max-width:330px;padding:14px 21px;border-left:2px solid #83e8c2;background:#08251fc9;
+  color:#e1f4e7;font-size:.81rem
+}
+.land-note strong{font-weight:650;font-size:1.03rem;color:white}
+.note-index{font-size:.67rem;letter-spacing:.14em;font-weight:750;color:#b0ebcb}
+.scene-hunian .scene{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);column-gap:25px}
+.scene-hunian .scene-copy{align-self:end;width:100%;padding-bottom:24px}
+.scene-hunian h1{font-size:clamp(3rem,5.8vw,6.8rem)}
+.scene-hunian .scene-picture img{object-position:50% 44%}
+.scene-hunian .scene-shade{background:linear-gradient(180deg,#102320ae,transparent 28%,transparent 36%,#142b22bd 70%,#0c231dec),linear-gradient(90deg,#193b2955,transparent 76%)}
+.home-rail{align-self:end;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:25px}
+.home-rail article{display:grid;align-content:center;padding:clamp(11px,2vw,25px);background:#fcfaf1;color:#112f24;border-radius:6px}
+.home-rail article span{font-weight:750;font-size:.67rem;letter-spacing:.12em;color:#316552}
+.home-rail strong{font:500 clamp(1.5rem,4.4vw,4.3rem)/1.12 var(--display);letter-spacing:-.05em;white-space:nowrap}
+.home-rail .text-link{font-size:.78rem}
+.scene-interior .scene{grid-template-columns:minmax(0,1fr) minmax(0,.96fr);gap:24px 50px}
+.scene-interior .scene-shade{background:linear-gradient(180deg,#071b17a6,transparent 35%,transparent 62%,#152c24bd 100%)}
+.scene-interior .scene-copy{
+  grid-area:1 / 2;align-self:center;width:100%;padding:clamp(22px,3.7vw,53px);
+  background:#13352caa;border:1px solid #c1ebd34d;backdrop-filter:blur(13px);
+  border-radius:5px;color:#fffdef
+}
+.scene-interior h1{font-size:clamp(2.65rem,4.5vw,5rem)}
+.interior-peek{grid-area:1 / 1;align-self:end;width:min(44%,245px);padding:7px;background:#f9f6ea;border-radius:4px;box-shadow:0 12px 45px #081c1a44}
+.interior-peek img,.greenway-feature img{aspect-ratio:16/10;object-fit:cover}
+.interior-peek figcaption{padding:0 4px;color:#264b3b;font-size:.72rem}
+.scene-fasilitas .scene{
+  grid-template-columns:minmax(0,1fr) minmax(0,.85fr);color:#153c2b;background:#eff0e4;
+  grid-template-rows:auto minmax(0,1fr) auto
+}
+.scene-fasilitas .scene-picture{right:auto;width:58%}
+.scene-fasilitas .scene-picture img{object-position:52% center}
+.scene-fasilitas .scene-shade{
+  background:linear-gradient(90deg,transparent 45%,#eff0e4 61%),linear-gradient(180deg,#102323a0,transparent 33%,transparent 68%,#102f2abf)
+}
+.scene-fasilitas .scene-copy{grid-area:1 / 2;align-self:start;margin-top:0;width:100%;padding-bottom:0}
+.scene-fasilitas h1{font-size:clamp(2.8rem,5vw,5.4rem);text-shadow:none}
+.scene-fasilitas h1 em{color:#30634a}
+.scene-fasilitas .scene-intro{color:#324d3c}
+.scene-fasilitas .outline.light{border-color:#538471;color:#164534;background:#e5eade}
+.scene-fasilitas .outline.light:hover{background:#cfdbcf}
+.scene-fasilitas .journey-header{background:linear-gradient(180deg,#102e27f5 10%,#102e27b8 68%,transparent)}
+.scene-fasilitas .scene-bottom{grid-row:3;color:#fff}
+.scene-fasilitas .scene-nudge{color:#1b4136}
+.greenway-feature{
+  grid-area:2 / 2;align-self:end;width:min(100%,500px);
+  padding:6px;background:#fffdf6;border-radius:5px;box-shadow:0 11px 34px #26372425;
+  margin-top:12px;margin-bottom:18px
+}
+.greenway-feature img{height:clamp(100px,17vh,180px);object-position:50% 55%}
+.greenway-feature figcaption{padding:0 4px;color:#345541}
+.scene-lokasi .scene-copy{align-self:end;width:100%;padding-bottom:25px}
+.scene-lokasi .scene-shade{background:linear-gradient(90deg,#102c20bb,transparent 63%),linear-gradient(180deg,#102b23ac,transparent 30%,transparent 52%,#071b17ea)}
+.location-card{
+  align-self:end;justify-self:end;width:min(100%,350px);margin-bottom:25px;
+  padding:clamp(16px,3vw,34px);background:#fcfaf0;color:#163c2b;
+  border-left:3px solid #66b590;border-radius:5px
+}
+.location-card p{font-size:.69rem;font-weight:750;letter-spacing:.12em;color:#39644d}
+.location-card address{font:500 clamp(1.35rem,2.5vw,2.1rem)/1.22 var(--display);margin:11px 0;font-style:normal}
+.location-card a{display:flex;align-items:center;gap:5px;min-height:44px;font-size:.84rem;font-weight:750;text-decoration:underline;text-underline-offset:4px}
+
+@media(min-width:761px){ .scene-fasilitas .scene{padding-top:98px;padding-bottom:15px} }
+@media(max-width:760px){
+  .scene-kawasan .scene,.scene-hunian .scene,.scene-interior .scene,.scene-fasilitas .scene,.scene-lokasi .scene{
+    grid-template-columns:minmax(0,1fr);grid-template-rows:1fr auto auto;gap:12px
+  }
+  .scene-kawasan .scene-copy,.scene-hunian .scene-copy,.scene-interior .scene-copy,.scene-fasilitas .scene-copy,.scene-lokasi .scene-copy{
+    grid-column:1;grid-row:1;align-self:end;padding-bottom:0
+  }
+  .land-note,.home-rail,.interior-peek,.greenway-feature,.location-card{
+    grid-column:1;grid-row:2;align-self:start;justify-self:start;margin:0
+  }
+  .land-note{gap:2px;padding:8px 12px;font-size:.73rem}
+  .land-note strong{font-size:.86rem}
+  .land-note .note-index{display:none}
+  .home-rail{width:100%}
+  .home-rail article{padding:9px 11px}
+  .home-rail strong{font-size:1.6rem}
+  .home-rail .text-link{min-height:34px}
+  .scene-interior .scene-copy{width:min(100%,430px);padding:17px;margin-top:6vh}
+  .interior-peek{width:145px;justify-self:end;padding:4px}
+  .interior-peek img{aspect-ratio:2.2}
+  .scene-fasilitas .scene{padding-top:77px}
+  .scene-fasilitas .scene-picture{width:100%;height:60%}
+  .scene-fasilitas .scene-shade{background:linear-gradient(180deg,#1023236b,transparent 18%,#eff0e452 33%,#eff0e4 53%)}
+  .scene-fasilitas .scene-copy{margin-top:20vh}
+  .scene-fasilitas .scene-bottom{color:#1a4738}
+  .scene-fasilitas .chapter-mark::before{background:#82a69a}
+  .scene-fasilitas .chapter-mark[aria-current]::before{background:#008877}
+  .scene-fasilitas .scene-arrow-links a{color:white;background:#164739}
+  .greenway-feature{width:100%;padding:4px}
+  .greenway-feature img{height:auto;aspect-ratio:3.4}
+  .location-card{width:min(100%,310px);padding:9px 14px}
+  .location-card address{font-size:1.25rem;margin:5px 0}
+  .location-card a{min-height:34px}
+}
+@media(max-width:640px){
+  .scene-kawasan .scene-shade,.scene-hunian .scene-shade,.scene-lokasi .scene-shade{
+    background:linear-gradient(180deg,#082721af,transparent 28%,#102d2840 37%,#092720de 60%,#041d16 100%)
+  }
+  .scene-interior .scene-shade{background:linear-gradient(180deg,#082721af,transparent 27%,transparent 45%,#102b23d9)}
+  .scene-kawasan h1,.scene-hunian h1,.scene-interior h1,.scene-fasilitas h1{font-size:clamp(2.45rem,10.8vw,4rem)}
+}
+@media(prefers-reduced-motion:reduce){
+  .scene-arrival [data-enter],.from-film [data-enter]{animation:none!important}
+}

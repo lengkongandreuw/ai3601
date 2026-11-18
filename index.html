@@ -25,7 +25,7 @@
     <symbol id="expand" viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></symbol>
   </svg>
   <a class="skip-link" href="#judul">Lewati ke isi halaman</a>
-  <header class="journey-header">
+  <header class="journey-header" data-enter>
     <a class="journey-brand" href="index.html" aria-label="Metland Kairagi, pembuka"><img src="assets/logo.webp" alt="Metland Kairagi" width="400" height="131"></a>
     <button class="journey-menu" type="button" aria-label="Jelajahi bab" aria-expanded="false" aria-controls="navigation"><svg aria-hidden="true"><use href="#menu"/></svg><span>Jelajahi</span></button>
     <nav id="navigation" class="journey-nav" aria-label="Bab perjalanan"><a href="index.html" aria-current="page">Gerbang</a><a href="kawasan/index.html">Kawasan</a><a href="hunian/index.html">Hunian</a><a href="interior/index.html">Interior</a><a href="fasilitas/index.html">Fasilitas</a><a href="lokasi/index.html">Lokasi &amp; Kunjungan</a></nav>
@@ -35,13 +35,13 @@
     <picture class="scene-picture"><source media="(max-width: 640px)" srcset="assets/gate-mobile.webp"><img src="assets/gate.webp" width="1440" height="810" fetchpriority="high" alt=""></picture>
     <div class="scene-shade"></div>
     <div class="scene-copy">
-      <p class="scene-eyebrow">Metland Kairagi / Manado</p>
-      <h1 id="judul" tabindex="-1">Hidup Lebih<br>Bermakna.</h1>
-      <p class="scene-intro">Di tengah hijaunya Kairagi, ada ruang untuk menikmati pagi yang tenang, menghabiskan waktu bersama, dan tetap dekat dengan keseharian Anda di Manado.</p>
-      
-      <div class="actions"><a class="button primary" href="kawasan/index.html" data-forward>Jelajahi Kawasan <svg aria-hidden="true"><use href="#arrow"/></svg></a><a class="button outline light" href="hunian/index.html" >Pilih Hunian <svg aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      <p class="scene-eyebrow" data-enter>Metland Kairagi / Manado</p>
+      <h1 id="judul" tabindex="-1" data-enter>Hidup Lebih<br>Bermakna.</h1>
+      <p class="scene-intro" data-enter>Di tengah hijaunya Kairagi, ada ruang untuk menikmati pagi yang tenang, menghabiskan waktu bersama, dan tetap dekat dengan keseharian Anda di Manado.</p>
+
+      <div class="actions" data-enter><a class="button primary" href="kawasan/index.html" data-forward>Jelajahi Kawasan <svg aria-hidden="true"><use href="#arrow"/></svg></a><a class="button outline light" href="hunian/index.html" >Pilih Hunian <svg aria-hidden="true"><use href="#arrow"/></svg></a></div>
     </div>
-    <div class="scene-bottom">
+    <div class="scene-bottom" data-enter>
       <nav class="chapter-nav" aria-label="Pilih bab"><span id="chapter-count">01 / 06</span><a href="index.html" class="chapter-mark" aria-label="Gerbang" aria-current="page"></a><a href="kawasan/index.html" class="chapter-mark" aria-label="Kawasan"></a><a href="hunian/index.html" class="chapter-mark" aria-label="Hunian"></a><a href="interior/index.html" class="chapter-mark" aria-label="Interior"></a><a href="fasilitas/index.html" class="chapter-mark" aria-label="Fasilitas"></a><a href="lokasi/index.html" class="chapter-mark" aria-label="Lokasi &amp; Kunjungan"></a></nav>
       <div class="scene-arrows"><a class="scene-nudge" href="kawasan/index.html" data-forward>Gulir atau geser untuk masuk</a><div class="scene-arrow-links"><a href="kawasan/index.html" data-forward aria-label="Bab berikutnya, Kawasan" title="Bab berikutnya"><svg aria-hidden="true"><use href="#down"/></svg></a></div></div>
     </div>
@@ -53,6 +53,6 @@
         <button type="button" class="button outline light film-skip" autofocus>Lewati video <svg aria-hidden="true"><use href="#arrow"/></svg></button>
       </div>
     </dialog>
-  
+
 </body>
 </html>
