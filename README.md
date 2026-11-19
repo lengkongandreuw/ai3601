@@ -1,6 +1,6 @@
 # Metland Kairagi
 
-Situs statis dengan enam halaman dan lima video transisi. Seluruh gambar, font, dan video untuk halaman sudah ada di folder `assets`.
+Situs statis dengan tujuh halaman dan enam video transisi. Seluruh gambar, font, dan video untuk halaman sudah ada di folder `assets`.
 
 ## Buka di komputer
 

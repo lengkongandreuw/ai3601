@@ -22,6 +22,7 @@ svg:not(.symbols){width:21px;height:21px;fill:none;stroke:currentColor;stroke-wi
 .symbols{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 .skip-link{position:fixed;z-index:11;inset:12px auto auto 12px;transform:translateY(-150%);padding:.75rem 1rem;background:var(--paper);color:var(--ink)}
 .skip-link:focus{transform:none}
+h1[tabindex="-1"]:focus{outline:none}
 .button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:51px;padding:11px 18px;border:1px solid transparent;border-radius:7px;font-size:.9rem;font-weight:700;line-height:1.25;transition:background .2s,border-color .2s}
 .primary,.journey-visit{background:#007268;color:white}
 .primary:hover,.journey-visit:hover{background:#005b52}
@@ -29,7 +30,7 @@ svg:not(.symbols){width:21px;height:21px;fill:none;stroke:currentColor;stroke-wi
 .outline.light:hover{background:#244c40d9;border-color:white}
 .actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
 .journey-header{position:absolute;z-index:3;inset:0 0 auto;display:grid;grid-template-columns:minmax(145px,1fr) auto minmax(175px,1fr);align-items:center;gap:16px;padding-right:var(--edge);color:#fff}
-.journey-brand{align-self:start;margin-top:20px;width:clamp(160px,21vw,327px);height:82px;display:grid;place-items:center start;padding:11px 37px 11px var(--edge);background:#fffef8;border-right:5px solid #00a698;border-end-end-radius:50px 65px;transform:skewX(-11deg);transform-origin:bottom left}
+.journey-brand{align-self:start;margin-top:20px;width:clamp(160px,19vw,298px);height:82px;display:grid;place-items:center start;padding:11px 37px 11px var(--edge);background:#fffef8;border-right:5px solid #00a698;border-end-end-radius:50px 65px;transform:skewX(-11deg);transform-origin:bottom left}
 .journey-brand img{width:min(164px,100%);transform:skewX(11deg)}
 .journey-nav{display:flex;align-items:center;gap:clamp(16px,2.6vw,45px)}
 .journey-nav a{display:flex;align-items:center;position:relative;min-height:44px;white-space:nowrap;font-size:.9rem;font-weight:650;text-shadow:0 1px 12px #04231c}
@@ -120,13 +121,7 @@ figcaption{display:flex;justify-content:space-between;gap:8px;margin-top:7px;col
 .map-legend li::before{content:counter(map-pin)}
 .map-legend a{text-decoration:underline}
 [hidden]{display:none!important}
-@media(max-width:1030px){
-  .journey-header{grid-template-columns:1fr auto auto;gap:12px}
-  .journey-menu{display:flex;align-items:center;min-height:44px;gap:6px;border:1px solid #ecfff3a0;border-radius:6px;background:#123a30b8;color:#fff;padding:7px 11px}
-  .journey-nav{display:none;position:absolute;inset:calc(100% + 7px) var(--edge) auto auto;min-width:215px;background:#10332ef7;border:1px solid #d6f6e64d;border-radius:7px;box-shadow:0 12px 34px #061b156b;padding:6px 13px;gap:0}
-  .journey-nav.menu-open{display:grid}
-  .journey-nav a::after{right:auto;width:30px}
-}
+
 @media(max-width:640px){
   .journey-header{gap:7px;padding-right:12px}
   .journey-brand{width:134px;height:53px;margin-top:9px;padding:6px 18px 6px 19px;border-right-width:4px;border-end-end-radius:36px 48px}
@@ -300,4 +295,54 @@ figcaption{display:flex;justify-content:space-between;gap:8px;margin-top:7px;col
 }
 @media(prefers-reduced-motion:reduce){
   .scene-arrival [data-enter],.from-film [data-enter]{animation:none!important}
+}
+
+/* Let the destination image appear before its contrast layer and foreground. */
+.scene-arrival .scene-shade,.from-film .scene-shade{
+  animation:enter-shade 810ms cubic-bezier(.22,.64,.26,1) both
+}
+.from-film .scene-shade{animation-delay:45ms}
+@keyframes enter-shade{from{opacity:0}to{opacity:1}}
+
+.scene h1{font-size:clamp(3.15rem,5.65vw,6.25rem)}
+.scene-beranda h1{font-size:clamp(3.9rem,6.9vw,7rem)}
+.scene-kawasan h1{font-size:clamp(2.9rem,4.8vw,5.25rem)}
+.scene-hunian h1{font-size:clamp(3.15rem,5.75vw,6.2rem);line-height:1}
+.scene-hunian h1 em{display:inline-block;font-size:.65em;letter-spacing:-.035em}
+.scene-hunian .scene-picture img{object-position:center}
+.scene-interior h1,.scene-fasilitas h1{font-size:clamp(2.55rem,4.45vw,4.9rem)}
+.scene-fasilitas .scene-picture{mask-image:linear-gradient(90deg,#000 78%,transparent)}
+.scene-kolam .scene{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);column-gap:clamp(24px,5vw,92px)}
+.scene-kolam .scene-copy{grid-area:1 / 2;justify-self:end;align-self:end;width:min(100%,475px)}
+.scene-kolam .scene-bottom{grid-column:1 / -1}
+.scene-kolam .scene-shade{background:linear-gradient(270deg,#062b22f2, #092e2366 45%,transparent 76%),linear-gradient(180deg,#071c1cb8,transparent 28%,transparent 54%,#08241fe8)}
+.scene-kolam h1{font-size:clamp(3rem,5.2vw,5.4rem)}
+.pool-note{font-size:.85rem;color:#dff3e8;border-left:2px solid #8ee9d7;padding-left:11px;margin:-9px 0 20px;max-width:34ch;--enter:275ms}
+
+@media(max-width:1180px){
+  .journey-header{grid-template-columns:1fr auto auto;gap:12px}
+  .journey-menu{display:flex;align-items:center;min-height:44px;gap:6px;border:1px solid #ecfff3a0;border-radius:6px;background:#123a30b8;color:#fff;padding:7px 11px}
+  .journey-nav{display:none;position:absolute;inset:calc(100% + 7px) var(--edge) auto auto;min-width:215px;background:#10332ef7;border:1px solid #d6f6e64d;border-radius:7px;padding:6px 13px;gap:0}
+  .journey-nav.menu-open{display:grid}
+  .journey-nav a::after{right:auto;width:30px}
+}
+@media(max-width:760px){
+  .scene-kolam .scene{grid-template-columns:minmax(0,1fr)}
+  .scene-kolam .scene-copy{grid-area:1 / 1;justify-self:start}
+  .scene-kolam .scene-shade{background:linear-gradient(180deg,#092626a6,transparent 28%,transparent 42%,#07271de8 66%,#071f19)}
+  .scene-fasilitas .scene-picture{mask-image:linear-gradient(180deg,#000 72%,transparent)}
+}
+@media(max-width:640px){
+  .scene h1{font-size:clamp(2.45rem,10vw,3.75rem)}
+  .scene-beranda h1{font-size:clamp(2.85rem,10.6vw,4.05rem)}
+  .scene-hunian h1{font-size:clamp(3rem,11.6vw,4rem)}
+  .scene-hunian h1 em{font-size:.65em}
+  .journey-header{gap:7px}
+  .journey-menu{min-width:44px;justify-content:center}
+  .film-dialog video{object-fit:cover}
+  .chapter-mark{width:15px}
+}
+@media(max-width:350px){.chapter-mark{width:13px}}
+@media(prefers-reduced-motion:reduce){
+  .scene-arrival .scene-shade,.from-film .scene-shade{animation:none}
 }
