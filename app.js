@@ -157,6 +157,7 @@ function startNavigation(url, withFilm = false, fromPop = false) {
   }
   const player = film.querySelector('video');
   const progress = film.querySelector('progress');
+  const ending = film.querySelector('.film-end-frame');
   const controls = new AbortController();
   const options = { signal: controls.signal };
   job.film = film;
@@ -175,7 +176,12 @@ function startNavigation(url, withFilm = false, fromPop = false) {
   player.addEventListener('waiting', stalled, options);
   player.addEventListener('ended', finish, options);
   player.addEventListener('error', finish, options);
-  player.addEventListener('timeupdate', () => { progress.value = player.duration ? player.currentTime / player.duration : 0; }, options);
+  player.addEventListener('timeupdate', () => {
+    progress.value = player.duration ? player.currentTime / player.duration : 0;
+    if (ending?.complete && ending.naturalWidth && player.duration - player.currentTime <= .78) {
+      film.classList.add('show-end-frame');
+    }
+  }, options);
   film.querySelector('.film-skip').addEventListener('click', finish, options);
   film.addEventListener('cancel', (event) => { event.preventDefault(); finish(); }, options);
   motion.addEventListener('change', () => { if (motion.matches) finish(); }, options);

@@ -9,8 +9,8 @@
   <title>Ada tenang di perjalanan pulang. · Metland Kairagi</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../assets/playfair.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../journey.css?v=7">
-  <script src="../app.js?v=7" defer></script>
+  <link rel="stylesheet" href="../journey.css?v=7-2">
+  <script src="../app.js?v=7-2" defer></script>
 </head>
 <body class="journey scene-kawasan" data-video="../assets/02-menyusuri-jalan.mp4">
   <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -53,6 +53,7 @@
   </main>
   <dialog id="film" class="film-dialog story-film" aria-labelledby="film-label">
       <video muted playsinline preload="none" poster="../assets/avenue.webp"></video>
+      <img class="film-end-frame" src="../assets/facade.webp" alt="" decoding="async" loading="lazy">
       <div class="film-bar">
         <div><span id="film-label">Visualisasi arsitektur</span><p>Menuju Hunian</p><progress aria-label="Progres video" value="0" max="1"></progress></div>
         <button type="button" class="button outline light film-skip" autofocus>Lewati video <svg aria-hidden="true"><use href="#arrow"/></svg></button>
