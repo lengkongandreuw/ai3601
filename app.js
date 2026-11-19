@@ -16,7 +16,109 @@ function setMenu(open) {
   document.querySelector('.journey-nav').classList.toggle('menu-open', open);
 }
 
+function setupBrandControls() {
+  const search = document.querySelector('#site-search');
+  const trigger = document.querySelector('[data-search]');
+  const field = search.querySelector('input');
+  const rows = [...search.querySelectorAll('.search-list li')];
+
+  function filterSearch() {
+    const words = field.value.trim().toLocaleLowerCase('id').split(/\s+/);
+    let visible = 0;
+    for (const row of rows) {
+      const link = row.querySelector('a');
+      const searchable = (link.textContent + ' ' + link.dataset.keywords).toLocaleLowerCase('id');
+      row.hidden = !words.every((word) => searchable.includes(word));
+      if (!row.hidden) visible++;
+    }
+    search.querySelector('.search-empty').hidden = visible > 0;
+  }
+
+  function openSearch() {
+    field.value = '';
+    filterSearch();
+    setMenu(false);
+    search.showModal();
+    field.focus();
+  }
+
+  trigger.addEventListener('click', openSearch);
+  field.addEventListener('input', filterSearch);
+  field.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowDown' && event.key !== 'Enter') return;
+    const first = rows.find((row) => !row.hidden)?.querySelector('a');
+    if (!first) return;
+    event.preventDefault();
+    if (event.key === 'Enter') first.click();
+    else first.focus();
+  });
+  search.addEventListener('click', (event) => {
+    const link = event.target.closest('.search-list a');
+    if (!link) return;
+    if (sceneKey(link.href) === sceneKey(location.href)) event.preventDefault();
+    search.close();
+  });
+  search.querySelector('[data-brand-close]').addEventListener('click', () => search.close());
+  search.addEventListener('close', () => trigger.focus());
+
+  const preview = document.querySelector('#site-preview');
+  if (preview) {
+    const launch = document.querySelector('[data-preview]');
+    const player = preview.querySelector('video');
+    const tracks = [...preview.querySelectorAll('[data-track]')];
+    let track = 0;
+
+    function playTrack(index) {
+      track = index;
+      player.src = assetURL(tracks[index].dataset.track);
+      tracks.forEach((button, i) => button.setAttribute('aria-pressed', String(i === track)));
+      player.play().catch(() => {});
+    }
+
+    launch.addEventListener('click', () => {
+      preview.showModal();
+      playTrack(0);
+    });
+    tracks.forEach((button, i) => button.addEventListener('click', () => playTrack(i)));
+    player.addEventListener('ended', () => {
+      if (preview.open && track + 1 < tracks.length) playTrack(track + 1);
+    });
+    preview.querySelector('[data-brand-close]').addEventListener('click', () => preview.close());
+    preview.addEventListener('close', () => {
+      player.pause();
+      launch.focus();
+    });
+  }
+
+  for (const card of document.querySelectorAll('[data-media]')) {
+    card.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      const lightbox = document.createElement('dialog');
+      lightbox.className = 'plan-dialog brand-dialog media-dialog';
+      lightbox.setAttribute('aria-label', card.querySelector('img').alt);
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'close-control';
+      button.setAttribute('aria-label', 'Tutup gambar');
+      button.textContent = '×';
+      const image = new Image();
+      image.src = card.href;
+      image.alt = card.querySelector('img').alt;
+      lightbox.append(button, image);
+      button.addEventListener('click', () => lightbox.close());
+      lightbox.addEventListener('close', () => {
+        lightbox.remove();
+        card.focus();
+      });
+      document.body.append(lightbox);
+      lightbox.showModal();
+    });
+  }
+}
+
 function setupScene() {
+  setupBrandControls();
   const detail = document.querySelector('#detail');
   if (detail) {
     let opener;
@@ -203,7 +305,7 @@ document.addEventListener('click', (event) => {
   if (target.hash || sceneKey(target) === sceneKey(displayed)) return;
   const next = forwardLink();
   event.preventDefault();
-  startNavigation(target.href, Boolean(next && sceneKey(target) === sceneKey(next.href)));
+  startNavigation(target.href, Boolean(next && !link.closest('#site-search') && sceneKey(target) === sceneKey(next.href)));
 });
 
 window.addEventListener('popstate', () => {
@@ -272,16 +374,20 @@ function setupPlans() {
   const galleryCaption = document.querySelector('#gallery-caption');
   const galleryCount = document.querySelector('#gallery-count');
   let galleryIndex = 0;
-  for (const button of document.querySelectorAll('[data-gallery-step]')) {
-    button.addEventListener('click', () => {
-      galleryIndex = (galleryIndex + Number(button.dataset.galleryStep) + gallery.length) % gallery.length;
-      const { file, caption } = gallery[galleryIndex];
-      galleryImage.src = assetURL(file + '.webp');
-      galleryImage.alt = caption;
-      galleryCaption.textContent = caption;
-      galleryCount.textContent = String(galleryIndex + 1).padStart(2, '0') + ' / ' + String(gallery.length).padStart(2,'0');
-    });
+  const thumbnails = [...document.querySelectorAll('[data-gallery-index]')];
+  function showSlide(index) {
+    galleryIndex = (index + gallery.length) % gallery.length;
+    const { file, caption } = gallery[galleryIndex];
+    galleryImage.src = assetURL(file + '.webp');
+    galleryImage.alt = caption;
+    galleryCaption.textContent = caption;
+    galleryCount.textContent = String(galleryIndex + 1).padStart(2, '0') + ' / ' + String(gallery.length).padStart(2, '0');
+    thumbnails.forEach((button, i) => button.setAttribute('aria-pressed', String(i === galleryIndex)));
   }
+  document.querySelectorAll('[data-gallery-step]').forEach((button) => {
+    button.addEventListener('click', () => showSlide(galleryIndex + Number(button.dataset.galleryStep)));
+  });
+  thumbnails.forEach((button, index) => button.addEventListener('click', () => showSlide(index)));
   const plan = document.querySelector('#plan');
   const planImage = document.querySelector('#plan-image');
   const planTitle = document.querySelector('#plan-title');

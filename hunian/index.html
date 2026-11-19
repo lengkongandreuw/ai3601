@@ -9,8 +9,8 @@
   <title>Lorraine. Dua pilihan hunian. · Metland Kairagi</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../assets/playfair.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../journey.css?v=7-2">
-  <script src="../app.js?v=7-2" defer></script>
+  <link rel="stylesheet" href="../journey.css?v=brand-1">
+  <script src="../app.js?v=brand-1" defer></script>
 </head>
 <body class="journey scene-hunian" data-video="../assets/03-masuk-rumah.mp4">
   <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -23,13 +23,18 @@
     <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
     <symbol id="menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
     <symbol id="expand" viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></symbol>
+    <symbol id="search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4 4"/></symbol>
+    <symbol id="leaf" viewBox="0 0 24 24"><path d="M12 21v-9m0 7C5 19 3 15 3 9c6 0 9 3 9 7m0 1c0-7 3-11 9-12 0 6-3 10-9 12"/></symbol>
+    <symbol id="shield" viewBox="0 0 24 24"><path d="M12 2 4 6v5c0 5 4 9 8 11 4-2 8-6 8-11V6l-8-4Z"/><path d="m8.5 12 2.5 2.5 4.8-5"/></symbol>
+    <symbol id="car" viewBox="0 0 24 24"><path d="m4 11 2.4-5h11.2l2.4 5M3 18v2m18-2v2M7 14h2m6 0h2"/><rect x="2.5" y="10.5" width="19" height="7" rx="2"/></symbol>
   </svg>
   <a class="skip-link" href="#judul">Lewati ke isi halaman</a>
   <header class="journey-header" data-enter>
     <a class="journey-brand" href="../index.html" aria-label="Metland Kairagi, pembuka"><img src="../assets/logo.webp" alt="Metland Kairagi" width="400" height="131"></a>
     <button class="journey-menu" type="button" aria-label="Jelajahi bab" aria-expanded="false" aria-controls="navigation"><svg aria-hidden="true"><use href="#menu"/></svg><span>Jelajahi</span></button>
-    <nav id="navigation" class="journey-nav" aria-label="Bab perjalanan"><a href="../index.html">Gerbang</a><a href="../kawasan/index.html">Kawasan</a><a href="../hunian/index.html" aria-current="page">Hunian</a><a href="../interior/index.html">Interior</a><a href="../fasilitas/index.html">Fasilitas</a><a href="../kolam/index.html">Kolam</a><a href="../lokasi/index.html">Lokasi &amp; Kunjungan</a></nav>
-    <a class="button journey-visit" href="../lokasi/index.html"><svg aria-hidden="true"><use href="#calendar"/></svg><span>Jadwalkan Kunjungan</span></a>
+    <nav id="navigation" class="journey-nav" aria-label="Bab perjalanan"><a href="../index.html">Gerbang</a><a href="../kawasan/index.html">Kawasan</a><a href="../hunian/index.html" aria-current="page">Hunian</a><a href="../interior/index.html">Interior</a><a href="../fasilitas/index.html">Fasilitas</a><a href="../lokasi/index.html">Lokasi</a></nav>
+    <button class="journey-search icon-button" type="button" data-search aria-label="Cari di Metland Kairagi" aria-haspopup="dialog"><svg aria-hidden="true"><use href="#search"/></svg></button>
+    <a class="button journey-visit" aria-label="Jadwalkan Kunjungan" href="../lokasi/index.html"><svg aria-hidden="true"><use href="#calendar"/></svg><span>Jadwalkan Kunjungan</span><span class="visit-short" aria-hidden="true">Kunjungan</span><svg aria-hidden="true"><use href="#arrow"/></svg></a>
   </header>
   <main class="scene">
     <picture class="scene-picture"><img src="../assets/facade.webp" width="1440" height="810" fetchpriority="high" alt=""></picture>
@@ -41,9 +46,17 @@
 
       <div class="actions" data-enter><a class="button primary" href="../interior/index.html" data-forward>Masuk ke Interior <svg aria-hidden="true"><use href="#arrow"/></svg></a><a class="button outline light" href="#detail" data-detail>Buka Galeri Lorraine <svg aria-hidden="true"><use href="#expand"/></svg></a></div>
     </div>
-    <div class="home-rail" data-enter>
-      <article><span>STANDARD</span><strong>10 × 20</strong><a class="text-link" data-plan data-unit="standard" href="https://metlandkairagi.co.id/detail_cluster.php?id=14#tipe-unit-lengkap">Lihat denah <svg><use href="#diagonal"/></svg></a></article>
-      <article><span>CORNER</span><strong>10 × 23</strong><a class="text-link" data-plan data-unit="corner" href="https://metlandkairagi.co.id/detail_cluster.php?id=14#tipe-unit-lengkap">Lihat denah <svg><use href="#diagonal"/></svg></a></article>
+    <div class="home-rail property-grid" data-enter>
+      <article class="property-card">
+        <img src="../assets/official-facade.webp" width="1080" height="1080" alt="" loading="eager">
+        <div class="property-card-copy"><span>Standard</span><strong>10 × 20</strong><p>4+1 kamar tidur · 3+1 kamar mandi</p>
+        <a class="text-link" data-plan data-unit="standard" href="https://metlandkairagi.co.id/detail_cluster.php?id=14#tipe-unit-lengkap" aria-label="Lihat denah Standard">Lihat denah <svg aria-hidden="true"><use href="#diagonal"/></svg></a></div>
+      </article>
+      <article class="property-card">
+        <img src="../assets/official-facade.webp" width="1080" height="1080" alt="" loading="eager">
+        <div class="property-card-copy"><span>Corner</span><strong>10 × 23</strong><p>4+1 kamar tidur · 3+1 kamar mandi</p>
+        <a class="text-link" data-plan data-unit="corner" href="https://metlandkairagi.co.id/detail_cluster.php?id=14#tipe-unit-lengkap" aria-label="Lihat denah Corner">Lihat denah <svg aria-hidden="true"><use href="#diagonal"/></svg></a></div>
+      </article>
     </div>
     <div class="scene-bottom" data-enter>
       <nav class="chapter-nav" aria-label="Pilih bab"><span id="chapter-count">03 / 07</span><a href="../index.html" class="chapter-mark" aria-label="Gerbang"></a><a href="../kawasan/index.html" class="chapter-mark" aria-label="Kawasan"></a><a href="../hunian/index.html" class="chapter-mark" aria-label="Hunian" aria-current="page"></a><a href="../interior/index.html" class="chapter-mark" aria-label="Interior"></a><a href="../fasilitas/index.html" class="chapter-mark" aria-label="Fasilitas"></a><a href="../kolam/index.html" class="chapter-mark" aria-label="Kolam"></a><a href="../lokasi/index.html" class="chapter-mark" aria-label="Lokasi &amp; Kunjungan"></a></nav>
@@ -81,6 +94,7 @@
             </div>
           </div>
           <figcaption><span id="gallery-caption" aria-live="polite">Ilustrasi deretan fasad Lorraine</span><span id="gallery-count">01 / 04</span></figcaption>
+          <div class="gallery-thumbs" role="group" aria-label="Pilih gambar Lorraine"><button type="button" data-gallery-index="0" aria-label="Fasad depan" aria-pressed="true"><img src="../assets/lorraine.webp" alt="" width="120" height="90" loading="lazy"></button><button type="button" data-gallery-index="1" aria-label="Detail fasad" aria-pressed="false"><img src="../assets/facade.webp" alt="" width="120" height="90" loading="lazy"></button><button type="button" data-gallery-index="2" aria-label="Tampak tipe Lorraine" aria-pressed="false"><img src="../assets/official-facade.webp" alt="" width="120" height="90" loading="lazy"></button><button type="button" data-gallery-index="3" aria-label="Sisi belakang" aria-pressed="false"><img src="../assets/rear.webp" alt="" width="120" height="90" loading="lazy"></button></div>
         </figure></div>
     </dialog><dialog id="plan" class="plan-dialog" aria-labelledby="plan-title">
     <div class="plan-top"><div><h2 id="plan-title">Ilustrasi denah 3D</h2><p id="plan-description">Visualisasi tata ruang. Detail tipe tersedia pada denah resmi Lorraine.</p></div><button type="button" class="close-control" data-close aria-label="Tutup denah" autofocus><svg><use href="#close"/></svg></button></div>
@@ -90,6 +104,20 @@
     </div>
     <div class="plan-image"><img id="plan-image" alt="" width="1920" height="1080"></div>
     <a class="text-link plan-source" href="https://metlandkairagi.co.id/detail_cluster.php?id=14#tipe-unit-lengkap" target="_blank" rel="noopener">Detail Lorraine di situs resmi <svg><use href="#diagonal"/></svg></a>
+  </dialog>
+  <dialog id="site-search" class="plan-dialog brand-dialog search-dialog" aria-labelledby="search-title">
+    <div class="plan-top"><h2 id="search-title">Cari di Metland Kairagi</h2><button type="button" class="close-control" data-brand-close aria-label="Tutup pencarian"><svg aria-hidden="true"><use href="#close"/></svg></button></div>
+    <div class="detail-body">
+      <label class="search-field"><svg aria-hidden="true"><use href="#search"/></svg><input type="search" aria-label="Cari hunian, fasilitas, atau lokasi" placeholder="Cari hunian, fasilitas, atau lokasi" autofocus></label>
+      <ul class="search-list">        <li><a href="../index.html" data-keywords="Metland Kairagi Manado pembuka">Gerbang <svg aria-hidden="true"><use href="#arrow"/></svg></a></li>
+        <li><a href="../kawasan/index.html" data-keywords="hidden sanctuary peta taman">Kawasan <svg aria-hidden="true"><use href="#arrow"/></svg></a></li>
+        <li><a href="../hunian/index.html" data-keywords="cluster rumah standard corner denah tipe">Hunian Lorraine <svg aria-hidden="true"><use href="#arrow"/></svg></a></li>
+        <li><a href="../interior/index.html" data-keywords="ruang makan keluarga ruang duduk lantai atas">Interior <svg aria-hidden="true"><use href="#arrow"/></svg></a></li>
+        <li><a href="../fasilitas/index.html" data-keywords="jalur pejalan kaki taman greenway">Fasilitas <svg aria-hidden="true"><use href="#arrow"/></svg></a></li>
+        <li><a href="../kolam/index.html" data-keywords="area kolam visualisasi">Kolam <svg aria-hidden="true"><use href="#arrow"/></svg></a></li>
+        <li><a href="../lokasi/index.html" data-keywords="marketing gallery maps alamat jadwal">Lokasi & Kunjungan <svg aria-hidden="true"><use href="#arrow"/></svg></a></li></ul>
+      <p class="search-empty" role="status" hidden>Belum ada hasil. Coba kata lain, seperti Lorraine atau kolam.</p>
+    </div>
   </dialog>
 </body>
 </html>
